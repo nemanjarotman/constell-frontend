@@ -1,17 +1,13 @@
 'use client'
-
+import { FC } from 'react'
 import { Box, Text, Flex } from '@chakra-ui/react'
 
-interface Props {
-  onShowSidebar: () => void
-  showSidebarButton?: boolean
-}
-
-const Header = ({ showSidebarButton = true, onShowSidebar }: Props) => {
+const Header: FC = () => {
   return (
     <Flex
-      bg="brand.white"
       p={4}
+      h={'80px'}
+      width={'full'}
       color="white"
       justifyContent="flex-start"
       alignItems={'flex-start'}

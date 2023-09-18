@@ -50,6 +50,9 @@ export const theme = extendTheme({
         disabled: {
           bg: 'brand.grey3',
           color: 'brand.white',
+          _hover: {
+            bg: 'brand.blueHover',
+          },
         },
       },
     },

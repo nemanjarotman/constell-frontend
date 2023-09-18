@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { apiGetAuthUser } from '../lib/api-requests'
+import { apiGetAuthUser } from '../lib/handleResponse'
 import useStore from '@/store/authStore'
 
 export default function useSession() {

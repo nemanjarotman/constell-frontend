@@ -1,10 +1,13 @@
 import './globals.css'
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Roboto } from 'next/font/google'
 import { ChakraProviderOverride } from '@/utils/chakraProvider'
 import { QueryProvider } from '@/utils/queryProvider'
 
-const inter = Inter({ subsets: ['latin'] })
+const roboto = Roboto({
+  weight: '400',
+  subsets: ['latin'],
+})
 
 export const metadata: Metadata = {
   title: 'Constel Social Network',
@@ -18,7 +21,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={roboto.className}>
         <QueryProvider>
           <ChakraProviderOverride>{children}</ChakraProviderOverride>
         </QueryProvider>

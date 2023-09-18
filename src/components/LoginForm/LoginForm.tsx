@@ -1,15 +1,15 @@
-// 'use client'
+'use client'
+import { FC, useEffect } from 'react'
 import { LoginUserInput, LoginUserSchema } from '@/app/login/form.schema'
 import { useForm, SubmitHandler, FormProvider } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { useEffect } from 'react'
-import { apiLoginUser } from '@/lib/api-requests'
+import { apiLoginUser } from '@/api/auth'
 import FormInput from '@/components/FormInput/FormInput'
 import useStore from '@/store/authStore'
 import { useRouter } from 'next/navigation'
-import { Button } from '@chakra-ui/react'
+import { Button, VStack } from '@chakra-ui/react'
 
-export default function LoginForm() {
+const LoginForm: FC = () => {
   const store = useStore()
   const router = useRouter()
 
@@ -58,20 +58,26 @@ export default function LoginForm() {
   return (
     <FormProvider {...methods}>
       <form onSubmit={handleSubmit(onSubmitHandler)}>
-        <FormInput
-          label="Email"
-          name="email"
-          placeholder={'Enter email here'}
-          type="email"
-        />
-        <FormInput
-          placeholder={'Enter password here'}
-          label="Password"
-          name="password"
-          type="password"
-        />
-        <Button>Login</Button>
+        <VStack alignItems={'center'}>
+          <FormInput
+            label="Email"
+            name="email"
+            placeholder={'Enter email here'}
+            type="email"
+          />
+          <FormInput
+            placeholder={'Enter password here'}
+            label="Password"
+            name="password"
+            type="password"
+          />
+          <Button variant={'disabled'} w={'181px'} type="submit">
+            Login
+          </Button>
+        </VStack>
       </form>
     </FormProvider>
   )
 }
+
+export default LoginForm

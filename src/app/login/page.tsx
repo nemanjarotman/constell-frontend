@@ -4,7 +4,7 @@ import Image from 'next/image'
 import Logo from '../../../public/logo.svg'
 import LoginForm from '@/components/LoginForm/LoginForm'
 
-function page() {
+const page = () => {
   return (
     <Box w={['full', 'md']} p={['8', '10']} mt={['20', '10vh']} mx={'auto'}>
       <VStack spacing={4} align={'flex-start'} w={'full'}>
