@@ -3,9 +3,9 @@ import { FC, useEffect } from 'react'
 import { LoginUserInput, LoginUserSchema } from '@/app/login/form.schema'
 import { useForm, SubmitHandler, FormProvider } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { apiLoginUser } from '@/api/auth'
 import FormInput from '@/components/FormInput/FormInput'
 import useStore from '@/store/authStore'
+import axios from 'axios'
 import { useRouter } from 'next/navigation'
 import { Button, VStack } from '@chakra-ui/react'
 
@@ -27,19 +27,18 @@ const LoginForm: FC = () => {
     if (isSubmitSuccessful) {
       reset()
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isSubmitSuccessful])
 
   useEffect(() => {
     store.reset()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   async function LoginUserFunction(credentials: LoginUserInput) {
     store.setRequestLoading(true)
     try {
-      await apiLoginUser(JSON.stringify(credentials))
-      return router.push('/home')
+      const response = await axios.post('/api/login', credentials)
+      localStorage.setItem('token', response?.data?.token)
+      router.push('/home')
     } catch (error: any) {
       console.log(error)
       if (error instanceof Error) {

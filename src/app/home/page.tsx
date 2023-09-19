@@ -4,6 +4,7 @@ import Sidebar from '@/components/Sidebar/Sidebar'
 import Header from '@/components/Header/Header'
 import NewPost from '@/components/NewPost/NewPost'
 import Post from '@/components/Post/Post'
+import withAuth from '@/components/AuthWrapper/AuthWrapper'
 
 const page = () => {
   return (
@@ -21,4 +22,4 @@ const page = () => {
   )
 }
 
-export default page
+export default withAuth(page)
