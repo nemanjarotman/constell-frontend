@@ -4,13 +4,13 @@ import { LoginUserInput, LoginUserSchema } from '@/app/login/form.schema'
 import { useForm, SubmitHandler, FormProvider } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import FormInput from '@/components/FormInput/FormInput'
-import useStore from '@/store/authStore'
+import useAuthStore from '@/store/authStore'
 import axios from 'axios'
 import { useRouter } from 'next/navigation'
 import { Button, VStack } from '@chakra-ui/react'
 
 const LoginForm: FC = () => {
-  const store = useStore()
+  const store = useAuthStore()
   const router = useRouter()
 
   const methods = useForm<LoginUserInput>({

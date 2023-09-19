@@ -6,7 +6,7 @@ const NewPost: FC = () => {
   return (
     <Box bg={'brand.grey1'} p={'48px'} borderRadius={'10px'}>
       <HStack mb={'10px'}>
-        <Avatar src="https://bit.ly/sage-adebayo" />
+        <Avatar src="https://bit.ly/broken-link" />
         <Input variant={'flushed'} w={'full'} />
       </HStack>
       <Flex

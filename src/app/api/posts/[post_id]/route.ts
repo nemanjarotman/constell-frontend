@@ -8,7 +8,9 @@ export async function GET(req: NextRequest) {
     Authorization: `Bearer ${token}`,
   }
 
-  const requestPath = '/posts'
+  const post_id = 0
+
+  const requestPath = `/posts/${post_id}`
 
   const res = await fetch(`${API_URL}${requestPath}`, {
     method: 'GET',

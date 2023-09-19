@@ -7,10 +7,12 @@ import NewPost from '@/components/NewPost/NewPost'
 import Post from '@/components/Post/Post'
 import withAuth from '@/components/AuthWrapper/AuthWrapper'
 import { useGetPosts } from '@/hooks/useGetPosts'
+import usePostStore from '@/store/postStore'
 
 const page = () => {
   const { data, error, isFetching } = useGetPosts()
-  console.log('data', data)
+  console.log('DATA', data)
+  const store = usePostStore()
   return (
     <Flex>
       <Sidebar />

@@ -11,6 +11,8 @@ import {
 } from '@chakra-ui/react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCalendar } from '@fortawesome/free-regular-svg-icons'
+import { faHeart } from '@fortawesome/free-solid-svg-icons/faHeart'
+import { faComment } from '@fortawesome/free-regular-svg-icons/faComment'
 // import Image from 'next/image';
 
 const Post: FC = () => {
@@ -21,7 +23,7 @@ const Post: FC = () => {
         {/*<Image  alt={}  />*/}
         <Flex justifyContent={'space-between'} alignItems={'flex-start'}>
           <HStack>
-            <Avatar src="https://bit.ly/sage-adebayo" />
+            <Avatar src="https://bit.ly/broken-link" />
             <VStack>
               <Text>@username</Text>
               <Text>Full Name</Text>
@@ -37,13 +39,20 @@ const Post: FC = () => {
             <Text>24.7.1994</Text>
           </HStack>
         </Flex>
-        <Text>SOME TEXT</Text>
-        <Flex>
+        <Text>
+          Lorem Ipsum is simply dummy text of the printing and typesetting
+          industry. Lorem Ipsum has been the industry's standard dummy text ever
+          since the 1500s, when an unknown printer took a galley of type and
+          scrambled it to make a type specimen book. It has survived not only
+          five centuries
+        </Text>
+        <Flex mt={'20px'}>
           <Button h={'34px'} w={'89px'}>
-            22
+            {' '}
+            <FontAwesomeIcon icon={faHeart} />
           </Button>
           <Button h={'34px'} w={'89px'} ml={'10px'} onClick={onOpen}>
-            22
+            <FontAwesomeIcon icon={faComment} />
           </Button>
         </Flex>
       </Flex>

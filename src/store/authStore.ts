@@ -3,7 +3,7 @@
 import { User } from '@/types/types'
 import { create } from 'zustand'
 
-type Store = {
+type AuthStore = {
   authUser: User | null
   requestLoading: boolean
   setAuthUser: (user: User | null) => void
@@ -11,7 +11,7 @@ type Store = {
   reset: () => void
 }
 
-const useStore = create<Store>((set) => ({
+const useAuthStore = create<AuthStore>((set) => ({
   authUser: null,
   requestLoading: false,
   setAuthUser: (user) => set((state) => ({ ...state, authUser: user })),
@@ -20,4 +20,4 @@ const useStore = create<Store>((set) => ({
   reset: () => set({ authUser: null, requestLoading: false }),
 }))
 
-export default useStore
+export default useAuthStore
