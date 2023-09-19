@@ -1,12 +1,16 @@
 'use client'
+
 import { Box, Flex } from '@chakra-ui/react'
 import Sidebar from '@/components/Sidebar/Sidebar'
 import Header from '@/components/Header/Header'
 import NewPost from '@/components/NewPost/NewPost'
 import Post from '@/components/Post/Post'
 import withAuth from '@/components/AuthWrapper/AuthWrapper'
+import { useGetPosts } from '@/hooks/useGetPosts'
 
 const page = () => {
+  const { data, error, isFetching } = useGetPosts()
+  console.log('data', data)
   return (
     <Flex>
       <Sidebar />

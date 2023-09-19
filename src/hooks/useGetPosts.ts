@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query'
 
-async function fetchAuthStatus() {
-  const res = await fetch('/api/accounts/me', {
+async function fetchAllPosts() {
+  const res = await fetch('/api/posts', {
     headers: {
       Authorization: `Bearer ${localStorage.getItem('token') || ''}`,
     },
@@ -9,12 +9,12 @@ async function fetchAuthStatus() {
   return res.json()
 }
 
-export function useAuth() {
+export function useGetPosts() {
   const { isLoading, error, data, isFetching } = useQuery({
-    queryKey: ['userInfo'],
+    queryKey: ['posts'],
     queryFn: async () => {
       try {
-        const res = await fetchAuthStatus()
+        const res = await fetchAllPosts()
         return res
       } catch (error) {
         console.error('Error fetching auth status:', error)
